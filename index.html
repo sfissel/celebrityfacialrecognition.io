@@ -1,0 +1,562 @@
+<!DOCTYPE HTML>
+<!--
+	Paradigm Shift by HTML5 UP
+	html5up.net | @ajlkn
+-->
+<html>
+	<head>
+		<title>Celebrity Facial Recognition</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Intro -->
+					<section class="intro">
+						<header>
+							<h1>Celebrity Facial Recongition</h1>
+							<p class="names">By Stephanie Fissel, Beza Gashe, & Claire Yoon</p>
+							<ul class="actions">
+								<li><a href="#first" class="arrow scrolly"><span class="label">Next</span></a></li>
+							</ul>
+						</header>
+						<div class="content">
+							<span class="image fill" data-position="center"><img src="images/cover.png" alt="" /></span>
+						</div>
+					</section>
+
+				<!-- Section -->
+					<section id="first">
+						<header>
+							<h2 class="head">Introduction</h2>
+						</header>
+						<div class="content">
+							<p class="frt"><strong>Facial recognition technology (FRT)</strong> relies on massive datasets to “learn” faces to accurately identify or verify the identity of a person. It captures, analyzes, and compares patterns based on a person’s facial features. Facial biometrics continues to be the preferred biometric benchmark above all other methods because it’s easy to deploy and implement, does not require any physical interaction with the end-user, and is very quick. <br>
+							Facial recognition is now implemented across many industries because of its wide applicability, benefits, and convenience. Many issues, small and large, that we once faced a decade ago are being solved thanks to this technology. <br>
+							<br>
+							For example, it can be used to: <br>
+							<span style="padding-left: 20px; padding-top:8px; display:block">
+							-&emsp;Help find missing people and identify perpetrators<br>
+							-&emsp;Protect businesses against theft<br>
+							-&emsp;Improve medical treatment<br>
+							-&emsp;Strengthen security measures in banks and airports<br>
+							-&emsp;Unlock sensitive information on mobile devices<br>
+							-&emsp;Make shopping more efficient<br>
+							-&emsp;Drastically reduce human touchpoints<br>
+							-&emsp;Help organize photos<br>
+							</span>
+							</p>
+					
+						<!-- Section -->
+						<section>
+							<header>
+								<h3 class="subhead">ALGORITHMIC BIAS</h3>
+								<p class="subsubhead">It's important to recognize the limitations reflected in these algorithms, particularly for identifying women, Black, and Asian individuals. Graduate student Joy Buolamwini coined the term “coded gaze” in her TED talk, describing algorithmic bias resulting in “exclusionary experiences and discriminatory practices.” As FRT continues advancing, society must work towards diminishing these biases and improving identification of all faces regardless of race or gender.</p>
+							</header>
+
+							<div class="content">
+								 <body>
+									<p class="txts"><b>Joy Buolamwini's TED Talk</b></p>
+									<iframe width="560" height="315" src="https://www.youtube.com/embed/UG_X_7g63rY" frameborder="0" allowfullscreen></iframe>
+									</iframe>
+								 </body>
+						</section>
+						<!-- Section -->
+						<section>
+							<header>
+								<h3 class="subhead">QUESTION</h3>
+							</header>
+							<div class="content">
+								<p class="txts"><b>Can we create multiple machine learning models that accurately identify and detect the correct person from a particular group of people with similarities in their appearances?</b></p>
+							</div>
+						</section>
+
+						<section>
+							<header>
+								<h3 class="subhead">CNN MODEL PROCESS</h3>
+							</header>
+							<div class="content">
+								<span><img class="viz" src="images/cnnmodel.png" alt="" /></span>
+							</div>
+						</section>
+													
+						</div>
+					</section>
+
+				<!-- Section -->
+					<section>
+						<header>
+							<h2 class="head">Exploratory Data Analysis</h2>
+						</header>
+						<div class="content">
+							<p class="overdata"><strong>Datasets used are images collected from the Internet through either web scraping or web crawling</strong></p>
+							<p class="txt2">-&emsp;Each three-person model was trained with <b>360</b> images and validated with <b>120</b> images <br>
+							<span style="padding-left: 40px; padding-top:8px; display:block" class="txt2">
+								+&emsp; Training: <b>120</b> images per person <br> </span>
+							<span style="padding-left: 40px; padding-top:8px; display:block" class="txt2">
+								+&emsp; Validating: <b>40</b> images per person </span>
+							
+						</p>
+						</div>
+					</section>
+
+				<!-- Section -->
+				<section id="first">
+					<header>
+						<h2 class="head">Methods</h2>
+					</header>
+					<div class="content">
+						<p class="overdata"><strong>Methods for data selection, data collection, and model implementation</strong></p>
+						<p class="txt2">-&emsp;Web crawling groups were split between male and female and amongst three racial groups (White, Black, Asian) for total of six groups<br>
+							<br>
+							-&emsp;Selected celebrities were chosen because of similar ages and facial appearances
+						</p>
+						
+					<section>
+						<header>
+							<h3 class="subhead">DATA COLLECTION: <br>WEB SCRAPING</h3>
+						</header>
+					<div class="content">
+						<p class="txts"><strong>Web scraping</strong> is the automated process of collecting structured information from the Internet. Extracts and duplicated data from any page it accesses. <br>
+							<span style="padding-left: 20px; padding-top:15px; display:block"><u>How it works:</u></span>
+							<span style="padding-left: 40px; padding-top:8px; display:block">
+								1. Identify target URLs <br>
+								2. Choose the right proxies <br>
+								3. Send requests to the URL <br>
+								4. Extract HTML code <br>
+								5. Parse data string <br>
+								6. Convert and save data <br>
+							</span>
+						</p>
+					</div>
+					</section>	
+					<section>
+						<header>
+							<h3 class="subshead">FEATURE ENGINEERING</h3>
+						</header>
+					<div class="content">
+						<p class="feateng">To improve accuracy and account for different image types, colors, and backgrounds, we tried to augment and normalize the web scraped images by: <br>
+							<span style="padding-left: 40px; padding-top:8px; display:block">
+							-&emsp;converting to black and white<br>
+							-&emsp;cropping just the head <br>
+							-&emsp;only using better resolution images <br>
+							<br>
+							<br>
+							<center>
+								<p class="note">&#10045;&ensp;Method only used for White Male Celebrities because time consuming and extensive computing resource requirement</p>
+							</center>
+							<br>
+							<img class="ws" src="images/webscrape.png" alt="" />
+							<br>
+						</span>
+						</p>		
+					</div>
+					</section>	
+					<br>
+					<br>
+					<section>
+						<header>
+							<h3 class="subhead">DATA COLLECTION: <br>WEB CRAWLING</h3>
+						</header>
+					<div class="content">
+						<p class="txts"><strong>Web crawling</strong> is used by search engines to scan the Internet for pages according to the keywords you input and remember them through indexing for later use in search results. Navigates and reads pages for indexing.<br>
+							<span style="padding-left: 20px; padding-top:15px; display:block"><u>How it works:</u></span>
+							<span style="padding-left: 40px; padding-top:8px; display:block">
+								1. Get seed set of URLs<br>
+								2. Go to first URL<br>
+								3. Retrieve page's data<br>
+								4. Analyze content and find links<br>
+								5. Add links to URL frontier<br>
+								6. Remember the visited URL and move to next<br>
+							</span>
+							<center>
+								<p class="note">&#10045;&ensp;Used open source library (bing-image-downloader) for this method for all groups</p>
+							</center>
+						</p>
+					</div>
+				</section>
+				<section>
+					<header>
+						<h3 class="subhead">CNN MODEL</h3>
+					</header>
+				<div class="content">
+							<p class="txt3">-&emsp;<b>Batch Number: 32</b><br>
+							<span style="padding-left: 40px; padding-top:8px; display:block" class="txt2">
+								+&emsp; Batch size means number of images used to train a single forward and backward pass <br> </span>
+							<span style="padding-left: 40px; padding-top:8px; display:block" class="txt2">
+								+&emsp; Picked 32 because it's considered a good default value and helps compute faster (taking full advantage of GPU processor) </span>
+							</p>
+							<p class="txt2">-&emsp;<b>Epoch Number: 50 &rarr; 15 &rarr; 10</b><br>
+								<span style="padding-left: 40px; padding-top:8px; display:block" class="txt2">
+									+&emsp; Originally set at 50 but didn't find a pattern and model's loss didn't consistently decrease <br> </span>
+								<span style="padding-left: 40px; padding-top:8px; display:block" class="txt2">
+									+&emsp; To improve, set at 15 but after 10 iterations there was overfitting issue</span>
+								<span style="padding-left: 40px; padding-top:8px; display:block" class="txt2">
+									+&emsp; Eventually set at 10 as ideal epoch value</span>
+							</p>
+							<p class="txt2">-&emsp;<b>Transfer Learning</b><br>
+								<span style="padding-left: 40px; padding-top:8px; display:block" class="txt2">
+									+&emsp; Technique of using a model to solve another related task<br> </span>
+								<span style="padding-left: 40px; padding-top:8px; display:block" class="txt2">
+									+&emsp; Since training a network model requires a lot of data, it's common to use different network model weights to reduce training time</span>
+								<span style="padding-left: 40px; padding-top:8px; display:block" class="txt2">
+									+&emsp; Advantage is that people can train the last layer using a smaller dataset</span>
+							</p>
+					<br>
+					<br>
+					<p class="txts1">
+						<center><img class="mod" src="images/model.png" alt="" /></center>
+					</p>
+					<p class="txt2">-&emsp;<b>Our Transfer Learning Process with PyTorch</b><br>
+						<span style="padding-left: 40px; padding-top:8px; display:block" class="txt2">
+							+&emsp; <u>Step 1: Load the Data</u><br> </span>
+							<span style="padding-left: 60px; padding-top:8px; display:block" class="txt2">
+								-&emsp; Load data from folder with torchvision.dataset<br> 
+								-&emsp; Transform images to match network requirements (resize, horizontal flip, normalize, convert to tensor)</span>
+						<span style="padding-left: 40px; padding-top:8px; display:block" class="txt2">
+							+&emsp; <u>Step 2: Define Model</u></span>
+							<span style="padding-left: 60px; padding-top:8px; display:block" class="txt2">
+								-&emsp; Use torchvision.models to load resnet34 with pre-trained weight set to TRUE<br> 
+								-&emsp; Use CrossEntropyLoss for multi-class loss function and optimizer (SGD: Stochastic Gradient Descent) with learning rate of 0.001 and momentum of 0.9</span>
+						<span style="padding-left: 40px; padding-top:8px; display:block" class="txt2">
+							+&emsp; <u>Step 3: Train and Test Model</u></span>
+							<span style="padding-left: 60px; padding-top:8px; display:block" class="txt2">
+								-&emsp; Train and evaluate model with epoch of 10<br> </span>
+						<span style="padding-left: 40px; padding-top:8px; display:block" class="txt2">
+							+&emsp; <u>Step 4: Results</u></span>
+							<span style="padding-left: 60px; padding-top:8px; display:block" class="txt2">
+								-&emsp; Review results by comparing training loss with validation loss<br> </span>
+					</p>
+
+				</div>
+				</section>
+				</div>
+				</section>
+
+				<!-- Section -->
+				<section>
+					<header>
+						<h2 class="head">Results & Evaluation</h2>
+					</header>
+					<div class="content">
+						<p>Initially started with data from web scraping but because of limitations and curiousity to evaluate more data, we mostly used web crawling</p>
+
+						<!-- Section -->
+						<section>
+							<header>
+								<h3 class="subhead1">WEB SCRAPING: <br> <i>WHITE MALE</i></h3>
+								<ul class="celebs1">
+									<li>Hugh Jackman</li>
+									<li>Jake Gyllenhaal</li>
+									<li>Ryan Reynolds</li>
+								</ul>
+								
+							</header>
+							<div class="content">
+							<div class="picmove1">
+								<p class="txts1">
+									<center>
+								<span class="pc1"><img class="pics" src="images/hugh.png" alt="" /><img class="pics" src="images/jake.png" alt="" /><img class="pics" src="images/ryan.png" alt="" /></span>
+							</center> 
+							<br>
+							<center> 
+								<p class="results">RESULTS</p>
+								<img class="mod" src="images/wmws.png" alt="" />
+							</center>
+							<center>
+								<span class="graphs"><img class="gs" src="images/wmws-loss.png" alt="" /><img class="gs" src="images/wmws-acc.png" alt="" /></span>
+							</center>
+						</p>
+							</div>
+							</div>
+						</section>
+
+						<!-- Section -->
+						<section>
+							<header>
+								<h3 class="subhead">WEB CRAWLING: <br> <i>WHITE MALE</i></h3>
+								<ul class="celebs1">
+									<li>Hugh Jackman</li>
+									<li>Jake Gyllenhaal</li>
+									<li>Ryan Reynolds</li>
+								</ul>
+							</header>
+							<div class="content">
+							<div class="picmove">
+								<p class="txts1">
+									<center>
+								<span class="pc"><img class="pics" src="images/hugh.png" alt="" /><img class="pics" src="images/jake.png" alt="" /><img class="pics" src="images/ryan.png" alt="" /></span>
+							</center> 
+							<br>
+							<center> 
+								<p class="results">RESULTS</p>
+								<img class="mod" src="images/wm.png" alt="" />
+							</center>
+							<center>
+								<span class="graphs"><img class="gs" src="images/wm-loss.png" alt="" /><img class="gs" src="images/wm-acc.png" alt="" /></span>
+							</center>
+						</p>
+							</div>
+							</div>
+						</section>
+
+						<!-- Section -->
+						<section>
+							<header>
+								<h3 class="subhead">WEB CRAWLING: <br><i>WHITE FEMALE</i></h3>
+								<ul class="celebs1">
+									<li>Lucy Hale</li>
+									<li>Mila Kunis</li>
+									<li>Sarah Hyland</li>
+								</ul>
+							</header>
+							<div class="content">
+							<div class="picmove">
+								<p class="txts1">
+									<center>
+								<span class="pc"><img class="pics" src="images/lucy.png" alt="" /><img class="pics" src="images/mila.png" alt="" /><img class="pics" src="images/sarah.png" alt="" /></span>
+							</center> 
+							<br>
+							<center> 
+								<p class="results">RESULTS</p>
+								<img class="mod" src="images/wf.png" alt="" />
+							</center>
+							<center>
+								<span class="graphs"><img class="gs" src="images/wf-loss.png" alt="" /><img class="gs" src="images/wf-acc.png" alt="" /></span>
+							</center>
+						</p>
+							</div>
+							</div>
+						</section>
+
+						<!-- Section -->
+							<section>
+								<header>
+									<h3 class="subhead">WEB CRAWLING: <br><i>BLACK MALE</i></h3>
+									<ul class="celebs1">
+										<li>Danny Glover</li>
+										<li>Denzel Washington</li>
+										<li>Morgan Freeman</li>
+									</ul>								
+								</header>
+								<div class="content">
+									<div class="picmove">
+										<p class="txts1">
+											<center>
+										<span class="pc"><img class="pics" src="images/danny.png" alt="" /><img class="pics" src="images/denzel.png" alt="" /><img class="pics" src="images/morgan.png" alt="" /></span>
+											</center> 
+											<br>
+											<center> 
+												<p class="results">RESULTS</p>
+												<img class="mod" src="images/bm.png" alt="" />
+											</center>
+											<center>
+												<span class="graphs"><img class="gs" src="images/bm-loss.png" alt="" /><img class="gs" src="images/bm-acc.png" alt="" /></span>
+											</center>
+										</p>
+									</div>
+								</div>
+							</section>
+
+						<!-- Section -->
+						<section>
+							<header>
+								<h3 class="subhead">WEB CRAWLING: <br><i>BLACK FEMALE</i></h3>
+								<ul class="celebs1">
+									<li>Alicia Keys</li>
+									<li>Jordin Sparks</li>
+									<li>Queen Latifah</li>
+								</ul>							
+							</header>
+							<div class="content">
+								<div class="picmove">
+									<p class="txts1">
+										<center>
+									<span class="pc"><img class="pics" src="images/alicia.png" alt="" /><img class="pics" src="images/jordan.png" alt="" /><img class="pics" src="images/queen.png" alt="" /></span>
+								</center> 
+								<br>
+								<center> 
+									<p class="results">RESULTS</p>
+									<img class="mod" src="images/bf.png" alt="" />
+								</center>
+								<center>
+									<span class="graphs"><img class="gs" src="images/bf-loss.png" alt="" /><img class="gs" src="images/bf-acc.png" alt="" /></span>
+								</center>
+							</p>
+								</div>
+							</div>
+						</section>
+
+						<!-- Section -->
+						<section>
+							<header>
+								<h3 class="subhead">WEB CRAWLING: <br><i>ASIAN MALE</i></h3>
+								<ul class="celebs1"> BTS:
+									<li>Jimin</li>
+									<li>Jung Kook</li>
+									<li>V</li>
+								</ul>								
+							</header>
+							<div class="content">
+								<div class="picmove">
+									<p class="txts1">
+										<center>
+									<span class="pc"><img class="pics" src="images/jimin.png" alt="" /><img class="pics" src="images/jungkook.png" alt="" /><img class="pics" src="images/v.png" alt="" /></span>
+								</center> 
+								<br>
+								<center> 
+									<p class="results">RESULTS</p>
+									<img class="mod" src="images/am.png" alt="" />
+								</center>
+								<center>
+									<span class="graphs"><img class="gs" src="images/am-loss.png" alt="" /><img class="gs" src="images/am-acc.png" alt="" /></span>
+								</center>
+							</p>
+								</div>
+							</div>
+						</section>
+
+
+						<!-- Section -->
+						<section>
+							<header>
+								<h3 class="subhead">WEB CRAWLING: <br><i>ASIAN FEMALE</i></h3>
+								<ul class="celebs1">Blackpink:
+									<li>Jennie</li>
+									<li>Jisoo</li>
+									<li>Rosé</li>
+								</ul>								
+							</header>
+							<div class="content">
+								<div class="picmove">
+									<p class="txts1">
+										<center>
+									<span class="pc"><img class="pics" src="images/jennie.png" alt="" /><img class="pics" src="images/jisoo.png" alt="" /><img class="pics" src="images/rose.png" alt="" /></span>
+								</center> 
+								<br>
+								<center> 
+									<p class="results">RESULTS</p>
+									<img class="mod" src="images/af.png" alt="" />
+								</center>
+								<center>
+									<span class="graphs"><img class="gs" src="images/af-loss.png" alt="" /><img class="gs" src="images/af-acc.png" alt="" /></span>
+								</center>
+							</p>
+								</div>
+							</div>
+						</section>
+
+						<!-- Section -->
+						<section>
+							<header>
+								<h3 class="subhead">MODEL COMPARISON</h3>
+							</header>
+							<div class="content">
+								<div class="picmove">
+									<p class="txts1">
+										<center>
+											<span class="graphs"><img class="gs" src="images/bar.png" alt="" /><img class="gs" src="images/bar1.png" alt="" /></span>
+										</center>
+							</p>		<center>
+								<span class="graphs"><img class="gs" src="images/valloss.png" alt="" /><img class="gs" src="images/valacc.png" alt="" /></span>
+										</center>
+								</div>
+							</div>
+						</section>
+
+					</div>
+				</section>
+
+				<!-- Section -->
+				<section id="first">
+					<header>
+						<h2 class="head">Conclusion</h2>
+					</header>
+					<div class="content">
+						<p class="overdata">Using PyTorch’s resnet34 function with pre-trained weight set to True, we were able to get a relatively higher validation accuracy (overall ~80% for epoch = 10) on each group of the model with a smaller dataset (360 for training/120 for validating). Also, most groups’ training loss and validation loss consistently decreased in every iteration except for the White Male group and Asian Male group. From our original question, we conclude that our models can detect the correct celebrity with about 80% validation accuracy. However, the results of our models were different than prior research conducted, which was that FRT falsely identified Black and Asian faces 10 to 100 times more often than White faces. Comparing each group, the lower validation accuracy occurred in the White Male group (70% in epoch = 10) and Asian Male group (72.5% for epoch = 10). However, considering our limitations and condition, the results cannot be generalized to apply to the real world since three people in each group cannot simply represent their entire respective gender and racial group.
+							</p>
+					</div>
+				</section>
+
+
+				<!-- Section -->
+				<section id="first">
+					<header>
+						<h2 class="head">Future Work</h2>
+					</header>
+					<div class="content">
+						<ul class="futurew">
+							<li><b>Would include more people in our model</b>
+								<ul>
+									<li>Due to our computing resources, model is taking a long time to run</li>
+								</ul>
+							</li>	
+							<li><b>Would input a new picture into the model that haven't been seen before and test how accurately it recognizes the person</b>
+								<ul>
+									<li>Wanted to add this to our current model but were limited on time</li>
+								</ul>
+							</li>	
+							<li><b>Would try to get better pictures using web scraping and validating</b>
+								<ul>
+									<li>Currently, web crawler randomly picks images based on name input so there's a higher chance of getting lower resolution or wrong image</li>
+									<li>Don't have a GPU that can quickly test</li>
+
+								</ul>
+							</li>	
+							<li><b>Would add more data with different age groups and appearances</b>
+								<ul>
+									<li>Even though we were trying to select people with similar appearances for each group, we acknowledge that they cannot represent the group as a whole</li>
+								</ul>
+							</li>
+							<li><b>Would add combined gender and race version to see whether model performance is different than that of each group's model </b></li>
+						</ul>
+					</div>
+				</section>
+
+				<!-- Section -->
+				<section id="first">
+					<header>
+						<h2 class="head">Sources</h2>
+					</header>
+					<div class="content">
+						<ul class="sources">
+							<li><a target="_blank" rel="noopener nnoregerrer" href="https://www.webscrapingapi.com/web-scraping-vs-web-crawling">https://www.webscrapingapi.com/web-scraping-vs-web-crawling</a></li>
+							<li><a target="_blank" rel="noopener nnoregerrer" href="https://en.wikipedia.org/wiki/Facial_recognition_system">https://en.wikipedia.org/wiki/Facial_recognition_system</a></li>
+							<li><a target="_blank" rel="noopener nnoregerrer" href="https://pceinc.org/wp-content/uploads/2019/11/20190528-Facial-Recognition-Article-3.pdf">https://pceinc.org/wp-content/uploads/2019/11/20190528-Facial-Recognition-Article-3.pdf</a></li>
+							<li><a target="_blank" rel="noopener nnoregerrer" href="https://www.analyticsinsight.net/what-is-the-importance-of-facial-recognition-in-todays-world/">https://www.analyticsinsight.net/what-is-the-importance-of-facial-recognition-in-todays-world/</a></li>
+							<li><a target="_blank" rel="noopener nnoregerrer" href="http://www.math.le.ac.uk/people/ag153/homepage/MeshkinfamfardGorTyuk2018.pdf">http://www.math.le.ac.uk/people/ag153/homepage/MeshkinfamfardGorTyuk2018.pdf</a></li>
+							<li><a target="_blank" rel="noopener nnoregerrer" href="https://www.flawedfacedata.com/">https://www.flawedfacedata.com/</a></li>
+							<li><a target="_blank" rel="noopener nnoregerrer" href="https://www.itpro.com/security/privacy/356882/the-pros-and-cons-of-facial-recognition-technology">https://www.itpro.com/security/privacy/356882/the-pros-and-cons-of-facial-recognition-technology</a></li>
+							<li><a target="_blank" rel="noopener nnoregerrer" href="https://github.com/ndb796/CNN-based-Celebrity-Classification-AI-Service-Using-Transfer-Learning">https://github.com/ndb796/CNN-based-Celebrity-Classification-AI-Service-Using-Transfer-Learning</a></li>
+							<li><a target="_blank" rel="noopener nnoregerrer" href="https://www.sciencedirect.com/science/article/pii/S2405959519303455">https://www.sciencedirect.com/science/article/pii/S2405959519303455</a></li>
+							<li><a target="_blank" rel="noopener nnoregerrer" href="https://www.guru99.com/transfer-learning.html#:~:text=What%20is%20Transfer%20Learning%3F">https://www.guru99.com/transfer-learning.html#:~:text=What%20is%20Transfer%20Learning%3F</a></li>
+						</ul>
+					</div>
+				</section>
+
+				<!-- Section -->
+
+				<br>
+				<br>
+				<!-- Copyright -->
+					<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+					<div class="copyright">&copy; BY STEPHANIE FISSEL, BEZA GASHE, CLAIRE YOON&emsp;|&ensp;<a target="_blank" rel="noopener nnoregerrer" href="https://github.com/sfissel/facial-recognition-project.git">GitHub&ensp;<i class="fa fa-github" style="font-size:20px"></i></a>&emsp;|&ensp;Design: <a target="_blank" rel="noopener nnoregerrer" href="https://html5up.net">HTML5 UP</a></div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
